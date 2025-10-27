@@ -105,7 +105,7 @@ const HeroSearch = () => {
                     transition: "all 0.3s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.background = "#ffd700";
+                    e.target.style.background = "linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)";
                     e.target.style.color = "#333";
                   }}
                   onMouseLeave={(e) => {
