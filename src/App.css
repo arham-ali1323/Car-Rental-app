@@ -1,0 +1,51 @@
+/* Navbar Styles */
+.navbar-custom {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  backdrop-filter: blur(10px);
+}
+
+.nav-link-custom {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #693b94 100%);
+  color: white;
+}
+
+.search-input-custom {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50rem;
+  padding-left: 2.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-light-custom {
+  border-color: white;
+  color: white;
+  transition: all 0.3s ease;
+  border-radius: 50rem;
+}
+
+.btn-outline-light-custom:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #693b94 100%);
+  border-color: #5a6fd8;
+  color: #333;
+}
+
+.btn-primary-custom {
+  background-color: #4c51bf;
+  border-color: #4c51bf;
+  color: white;
+  transition: all 0.3s ease;
+  border-radius: 50rem;
+}
+
+.btn-primary-custom:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #693b94 100%);
+  border-color: #5a6fd8;
+  color: #333;
+}
