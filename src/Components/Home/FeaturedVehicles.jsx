@@ -68,72 +68,50 @@ const cardVariants = {
 
 const FeaturedVehicles = () => {
   return (
-    <Container className="my-5">
-      <h2 className="text-center fw-bold mb-3">Featured Vehicles</h2>
-      <p className="text-center text-muted mb-4">
-        Explore our selection of premium vehicles available for your next
-        adventure.
-      </p>
-      <Row>
-        {vehicles.map((v, idx) => (
-          <Col md={4} key={idx} className="mb-4">
-            <Link
-              to={`/cars/${v.id}`}
-              className="text-decoration-none text-dark"
-            >
-              <motion.div
-                className="h-100"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-              >
-                <Card className="shadow-sm h-100 hover-shadow-sm">
-                  <div style={{ position: "relative" }}>
-                    <span
-                      className="badge bg-success position-absolute rounded-5"
-                      style={{ top: 8, left: 8, zIndex: 2 }}
-                    >
-                      Avalible Now
-                    </span>
-                    <Card.Img variant="top" src={v.img} alt={v.name} />
-                    <span
-                      className="badge bg-dark position-absolute"
-                      style={{
-                        bottom: 8,
-                        right: 8,
-                        zIndex: 2,
-                        fontSize: 15,
-                        padding: 12,
-                      }}
-                    >
-                      {v.price}
-                    </span>
-                  </div>
-                  <Card.Body>
-                    <Card.Title>{v.name}</Card.Title>
-                    <Card.Subtitle className="text-muted">
-                      {v.type}
-                    </Card.Subtitle>
-                    <h5 className="mt-2">{v.price}</h5>
-                    <ul className="list-unstyled mt-2">
-                      {v.tags.map((t, i) => (
-                        <li key={i} className="text-muted small">
-                          • {t}
-                        </li>
-                      ))}
-                    </ul>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Link>
-          </Col>
-        ))}
-      </Row>
-      <div className="text-center mt-4">
-        <button className="btn btn-primary">View All Vehicles</button>
-      </div>
-    </Container>
+    <section className="featured-vehicles-section">
+      <Container>
+        <h2 className="featured-vehicles-title text-center">Featured Vehicles</h2>
+        <p className="featured-vehicles-subtitle text-center">
+          Explore our selection of premium vehicles available for your next adventure.
+        </p>
+        <Row>
+          {vehicles.map((v, idx) => (
+            <Col md={4} key={idx} className="mb-4">
+              <Link to={`/cars/${v.id}`} className="text-decoration-none">
+                <motion.div
+                  className="h-100"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={cardVariants}
+                >
+                  <Card className="vehicle-card">
+                    <div className="position-relative">
+                      <span className="vehicle-badge-available">Available Now</span>
+                      <Card.Img variant="top" src={v.img} alt={v.name} className="vehicle-card-image" />
+                      <span className="vehicle-badge-price">{v.price}</span>
+                    </div>
+                    <Card.Body className="vehicle-card-body">
+                      <Card.Title className="vehicle-card-title">{v.name}</Card.Title>
+                      <Card.Subtitle className="vehicle-card-subtitle">{v.type}</Card.Subtitle>
+                      <div className="vehicle-card-price">{v.price}</div>
+                      <ul className="vehicle-tags">
+                        {v.tags.map((t, i) => (
+                          <li key={i} className="vehicle-tag">{t}</li>
+                        ))}
+                      </ul>
+                    </Card.Body>
+                  </Card>
+                </motion.div>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+        <div className="text-center">
+          <button className="view-all-button">View All Vehicles</button>
+        </div>
+      </Container>
+    </section>
   );
 };
 

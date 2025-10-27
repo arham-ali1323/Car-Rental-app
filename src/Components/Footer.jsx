@@ -5,69 +5,66 @@ import Logo from '../assets/image/logo.svg'; // adjust path to your actual logo
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-dark pt-5 border-top">
+    <footer className="footer">
       <Container>
         <Row className="gy-4">
           {/* Logo & Description */}
           <Col md={4}>
-            <div className="mb-3">
-              <img src={Logo} alt="CarRental" height="40" />
-            </div>
-            <p className="text-secondary small">
+            <img src={Logo} alt="CarRental" className="footer-logo" />
+            <p className="footer-description">
               Premium car rental service with a wide selection of luxury and everyday vehicles for all your driving needs.
             </p>
-            <div className="d-flex gap-3 mt-3">
-              <a href="#"><FaFacebookF /></a>
-              <a href="#"><FaInstagram /></a>
-              <a href="#"><FaTwitter /></a>
-              <a href="#"><FaEnvelope /></a>
+            <div className="footer-social-links">
+              <a href="#" className="footer-social-link"><FaFacebookF /></a>
+              <a href="#" className="footer-social-link"><FaInstagram /></a>
+              <a href="#" className="footer-social-link"><FaTwitter /></a>
+              <a href="#" className="footer-social-link"><FaEnvelope /></a>
             </div>
           </Col>
 
           {/* Quick Links */}
           <Col md={2}>
-            <h6 className="fw-bold">QUICK LINKS</h6>
-            <ul className="list-unstyled small">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Browse Cars</a></li>
-              <li><a href="#">List Your Car</a></li>
-              <li><a href="#">About Us</a></li>
+            <h6 className="footer-heading">QUICK LINKS</h6>
+            <ul className="footer-links">
+              <li><a href="#" className="footer-link">Home</a></li>
+              <li><a href="#" className="footer-link">Browse Cars</a></li>
+              <li><a href="#" className="footer-link">List Your Car</a></li>
+              <li><a href="#" className="footer-link">About Us</a></li>
             </ul>
           </Col>
 
           {/* Resources */}
           <Col md={3}>
-            <h6 className="fw-bold">RESOURCES</h6>
-            <ul className="list-unstyled small">
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Insurance</a></li>
+            <h6 className="footer-heading">RESOURCES</h6>
+            <ul className="footer-links">
+              <li><a href="#" className="footer-link">Help Center</a></li>
+              <li><a href="#" className="footer-link">Terms of Service</a></li>
+              <li><a href="#" className="footer-link">Privacy Policy</a></li>
+              <li><a href="#" className="footer-link">Insurance</a></li>
             </ul>
           </Col>
 
           {/* Contact */}
           <Col md={3}>
-            <h6 className="fw-bold">CONTACT</h6>
-            <ul className="list-unstyled small text-secondary">
-              <li>1234 Luxury Drive</li>
-              <li>San Francisco, CA 94107</li>
-              <li>+1 234 567890</li>
-              <li>info@example.com</li>
+            <h6 className="footer-heading">CONTACT</h6>
+            <ul className="footer-contact-info">
+              <li className="footer-contact-item">1234 Luxury Drive</li>
+              <li className="footer-contact-item">San Francisco, CA 94107</li>
+              <li className="footer-contact-item">+1 234 567890</li>
+              <li className="footer-contact-item">info@example.com</li>
             </ul>
           </Col>
         </Row>
 
         {/* Bottom line */}
-        <hr className="my-4" />
-        <div className="d-md-flex justify-content-between small text-secondary">
-          <div>© 2025 Brand. All rights reserved.</div>
-          <div className="d-flex gap-3">
-            <a href="#">Privacy</a>
-            <span>|</span>
-            <a href="#">Terms</a>
-            <span>|</span>
-            <a href="#">Cookies</a>
+        <div className="footer-bottom">
+          <p className="footer-copyright">© 2025 Brand. All rights reserved.</p>
+          <div className="footer-bottom-links">
+            <a href="#" className="footer-bottom-link">Privacy</a>
+            <span className="footer-separator">|</span>
+            <a href="#" className="footer-bottom-link">Terms</a>
+            <span className="footer-separator">|</span>
+            <a href="#" className="footer-bottom-link">Cookies</a>
           </div>
         </div>
       </Container>

@@ -31,37 +31,35 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <Container className="my-5">
-      <h2 className="text-center fw-bold">What Our Customers Say</h2>
-      <p className="text-center text-muted mb-4">Why travelers choose CarRental around the world.</p>
-      <Row>
-        {testimonials.map((t, i) => (
-          <Col md={4} key={i} className="mb-4">
-            <Card className="shadow-sm p-3 h-100">
-              <Card.Body className="d-flex flex-column">
-                <div className="d-flex align-items-center mb-2" style={{ width: '100%' }}>
-                  <img
-                    src={t.img}
-                    alt={t.name}
-                    style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover", marginRight: 12 }}
-                  />
-                  <div className="text-start">
-                    <Card.Title className="fw-bold mb-0">{t.name}</Card.Title>
-                    <Card.Subtitle className="text-muted mb-0" style={{ fontSize: 14 }}>{t.location}</Card.Subtitle>
+    <section className="testimonials-section">
+      <Container>
+        <h2 className="testimonials-title text-center">What Our Customers Say</h2>
+        <p className="testimonials-subtitle text-center">Why travelers choose CarRental around the world.</p>
+        <Row>
+          {testimonials.map((t, i) => (
+            <Col md={4} key={i} className="mb-4">
+              <Card className="testimonial-card">
+                <Card.Body className="d-flex flex-column">
+                  <div className="testimonial-user-info">
+                    <img src={t.img} alt={t.name} className="testimonial-user-image" />
+                    <div>
+                      <div className="testimonial-user-name">{t.name}</div>
+                      <div className="testimonial-user-location">{t.location}</div>
+                    </div>
                   </div>
-                </div>
-                <div className="mb-2">
-                  {[...Array(t.rating)].map((_, idx) => (
-                    <img src={starIcon} alt="star" key={idx} style={{ width: 18, height: 18, marginRight: 2 }} />
-                  ))}
-                </div>
-                <Card.Text className="text-start ">"{t.review}"</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+                  <div className="testimonial-rating">
+                    {[...Array(t.rating)].map((_, idx) => (
+                      <img src={starIcon} alt="star" key={idx} className="testimonial-star" />
+                    ))}
+                  </div>
+                  <Card.Text className="testimonial-review">"{t.review}"</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
   );
 };
 

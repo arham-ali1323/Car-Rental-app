@@ -4,55 +4,40 @@ import { motion } from "framer-motion";
 import { FaSearch, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import carImage from "../../assets/image/main_car.png";
 
+
 const HeroSearch = () => {
   return (
-    <section
-      className="hero-section position-relative overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <section className="hero-section">
       {/* Background Overlay */}
-      <div
-        className="position-absolute top-0 start-0 w-100 h-100"
-        style={{
-          background: "rgba(0, 0, 0, 0.3)",
-          zIndex: 1,
-        }}
-      ></div>
+      <div className="hero-overlay"></div>
 
-      <Container className="text-center position-relative" style={{ zIndex: 2 }}>
+      <Container className="hero-container">
         <motion.h1
-          className="hero-heading text-white mb-5 display-4 fw-bold"
+          className="hero-heading"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           Luxury Cars on Rent
           <br />
-          <span className="text-warning">Drive Your Dreams</span>
+          <span>Drive Your Dreams</span>
         </motion.h1>
 
         {/* Search Box */}
         <motion.div
-          className="search-box bg-white rounded-4 shadow-lg p-4"
+          className="search-box"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          style={{ maxWidth: "900px", margin: "0 auto" }}
         >
           <Row className="align-items-end g-3">
             <Col md={3} sm={12}>
-              <div className="search-field position-relative">
-                <label className="form-label fw-semibold text-muted">
+              <div className="search-field">
+                <label className="form-label">
                   <FaMapMarkerAlt className="me-2 text-primary" />
                   Pickup Location
                 </label>
-                <Form.Select className="form-select rounded-pill border-0 shadow-sm">
+                <Form.Select className="form-select">
                   <option>Please select location</option>
                   <option>New York</option>
                   <option>Los Angeles</option>
@@ -69,50 +54,28 @@ const HeroSearch = () => {
             </Col>
 
             <Col md={3} sm={12}>
-              <div className="search-field position-relative">
-                <label className="form-label fw-semibold text-muted">
+              <div className="search-field">
+                <label className="form-label">
                   <FaCalendarAlt className="me-2 text-primary" />
                   Pick-up Date
                 </label>
-                <Form.Control
-                  type="date"
-                  className="form-control rounded-pill border-0 shadow-sm"
-                />
+                <Form.Control type="date" className="form-control" />
               </div>
             </Col>
 
             <Col md={3} sm={12}>
-              <div className="search-field position-relative">
-                <label className="form-label fw-semibold text-muted">
+              <div className="search-field">
+                <label className="form-label">
                   <FaCalendarAlt className="me-2 text-primary" />
                   Return Date
                 </label>
-                <Form.Control
-                  type="date"
-                  className="form-control rounded-pill border-0 shadow-sm"
-                />
+                <Form.Control type="date" className="form-control" />
               </div>
             </Col>
 
             <Col md={3} sm={12}>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  variant="primary"
-                  className="w-100 rounded-pill py-3 fw-bold shadow"
-                  style={{
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                    border: "none",
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = "linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)";
-                    e.target.style.color = "#333";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
-                    e.target.style.color = "white";
-                  }}
-                >
+                <Button variant="primary" className="search-button">
                   <FaSearch className="me-2" /> Search Cars
                 </Button>
               </motion.div>
@@ -124,11 +87,10 @@ const HeroSearch = () => {
         <motion.img
           src={carImage}
           alt="Luxury Car"
-          className="img-fluid mt-5"
+          className="hero-car-image"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          style={{ maxWidth: "600px", filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))" }}
         />
       </Container>
     </section>

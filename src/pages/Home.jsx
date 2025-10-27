@@ -1,4 +1,5 @@
 import React from "react";
+import "../Components/Home/Home.css";
 import HeroSearch from "../Components/Home/HeroSearch";
 import FeaturedVehicles from "../Components/Home/FeaturedVehicles";
 import CTASection from "../Components/Home/CTASection";
