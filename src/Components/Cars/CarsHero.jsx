@@ -1,8 +1,16 @@
-import React from "react";
-import { Container, Row, Col, InputGroup, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, InputGroup, Form, Button } from "react-bootstrap";
 import "./Cars.css";
 
 const CarsHero = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // Handle search logic here
+    console.log("Searching for:", searchTerm);
+  };
+
   return (
     <section className="cars-hero-section">
       <Container className="cars-hero-container text-center">
@@ -10,19 +18,31 @@ const CarsHero = () => {
         <p className="cars-hero-subtitle">Browse our selection of premium vehicles available for your next adventure</p>
         <Row className="cars-hero-search">
           <Col>
-            <InputGroup className="cars-hero-input-group mb-3">
-              <InputGroup.Text className="cars-hero-input-group-text">
-                <i className="bi bi-search"></i>
-              </InputGroup.Text>
-              <Form.Control
-                placeholder="Search By Make, Model and Features"
-                aria-label="Search cars"
-                className="cars-hero-form-control"
-              />
-              <InputGroup.Text className="cars-hero-input-group-text">
-                <i className="bi bi-funnel"></i>
-              </InputGroup.Text>
-            </InputGroup>
+            <Form onSubmit={handleSearch}>
+              <InputGroup className="cars-hero-input-group mb-3">
+                <InputGroup.Text className="cars-hero-input-group-text">
+                  <i className="bi bi-search"></i>
+                </InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="Search By Make, Model and Features"
+                  aria-label="Search cars"
+                  className="cars-hero-form-control"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <InputGroup.Text className="cars-hero-input-group-text">
+                  <i className="bi bi-funnel"></i>
+                </InputGroup.Text>
+                <Button
+                  type="submit"
+                  variant="primary"
+                  className="cars-hero-search-btn"
+                >
+                  Search
+                </Button>
+              </InputGroup>
+            </Form>
           </Col>
         </Row>
       </Container>
