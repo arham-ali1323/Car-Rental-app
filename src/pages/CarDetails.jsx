@@ -1,11 +1,16 @@
 // At the top of the file
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { vehicles as featuredVehicles } from '../Components/Home/FeaturedVehicles';
 import { vehicles as carsVehicles } from '../Components/Cars/CarsFeatures';
+import { useBooking } from '../contexts/BookingContext';
 
 const CarDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { addBooking } = useBooking();
+  const [pickupDate, setPickupDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
 
   // Combine vehicles from both components
   const allVehicles = [...featuredVehicles, ...carsVehicles];
@@ -46,6 +51,30 @@ const CarDetails = () => {
   // Dummy features and description (can be expanded later)
   const features = ["Leather Seats", "Panoramic Sunroof", "Wireless Charging", "360 Camera"];
   const description = `The ${name} is a premium vehicle in the ${type.split(' - ')[0]} category. Experience luxury and performance with this exceptional car.`;
+
+  const handleBookNow = () => {
+    if (!pickupDate || !returnDate) {
+      alert('Please select both pickup and return dates.');
+      return;
+    }
+
+    const newBooking = {
+      id: Date.now(), // Use timestamp as unique ID
+      image: image,
+      title: name,
+      year: year,
+      location: location,
+      transmission: transmission,
+      fuel: fuel,
+      dateRange: `${pickupDate} - ${returnDate}`,
+      pickupLocation: 'Airport Terminal 1', // Default pickup location
+      returnLocation: 'Downtown Office', // Default return location
+      price: price,
+    };
+
+    addBooking(newBooking);
+    navigate('/my-booking');
+  };
 
   return (
     <div className="bg-light min-vh-100 font-inter text-dark">
@@ -163,6 +192,8 @@ const CarDetails = () => {
                     type="date"
                     id="pickupDate"
                     className="form-control"
+                    value={pickupDate}
+                    onChange={(e) => setPickupDate(e.target.value)}
                   />
                 </div>
 
@@ -172,10 +203,15 @@ const CarDetails = () => {
                     type="date"
                     id="returnDate"
                     className="form-control"
+                    value={returnDate}
+                    onChange={(e) => setReturnDate(e.target.value)}
                   />
                 </div>
 
-                <button className="btn btn-primary w-100 py-3 fw-bold fs-5 shadow-sm">
+                <button
+                  className="btn btn-primary w-100 py-3 fw-bold fs-5 shadow-sm"
+                  onClick={handleBookNow}
+                >
                   Book Now
                 </button>
                 <p className="text-center text-muted small mt-3 mb-0">
