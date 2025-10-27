@@ -169,4 +169,5 @@ const CarsFeatures = () => {
   );
 };
 
+export { vehicles };
 export default CarsFeatures;

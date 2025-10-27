@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col, Badge, Button } from "react-bootstrap";
-import { FaMapMarkerAlt, FaCalendarAlt, FaEdit, FaTrash, FaCheckCircle } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCalendarAlt, FaEdit, FaTrash, FaCheckCircle, FaCar, FaTruck, FaGasPump, FaCog } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const BookingCard = ({ booking, index }) => {
+const BookingCard = ({ booking, index, onRemove }) => {
   if (!booking) return null;
 
   return (
@@ -88,9 +88,24 @@ const BookingCard = ({ booking, index }) => {
           </div>
 
           <h5 className="mt-3 mb-1 fw-bold text-dark">{booking.title}</h5>
-          <p className="text-muted mb-0 small">
-            {booking.year} • {booking.type || "SUV"} • {booking.location}
-          </p>
+          <div className="d-flex align-items-center gap-3 mb-0">
+            <small className="text-muted d-flex align-items-center">
+              <FaCar className="me-1 text-secondary" />
+              {booking.year}
+            </small>
+            <small className="text-muted d-flex align-items-center">
+              <FaCog className="me-1 text-secondary" />
+              {booking.transmission || "Automatic"}
+            </small>
+            <small className="text-muted d-flex align-items-center">
+              <FaGasPump className="me-1 text-secondary" />
+              {booking.fuel || "Petrol"}
+            </small>
+            <small className="text-muted d-flex align-items-center">
+              <FaMapMarkerAlt className="me-1 text-secondary" />
+              {booking.location}
+            </small>
+          </div>
         </Col>
 
         {/* Pricing & Actions */}
@@ -119,6 +134,7 @@ const BookingCard = ({ booking, index }) => {
                 size="sm"
                 className="rounded-pill px-3"
                 style={{ fontSize: "0.8rem" }}
+                onClick={() => onRemove(booking.id)}
               >
                 <FaTrash className="me-1" />
                 Cancel

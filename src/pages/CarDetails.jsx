@@ -1,39 +1,64 @@
 // At the top of the file
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import BMWM4 from "../assets/image/car_image1.png"
- 
+import { useParams, Link } from 'react-router-dom';
+import { vehicles as featuredVehicles } from '../Components/Home/FeaturedVehicles';
+import { vehicles as carsVehicles } from '../Components/Cars/CarsFeatures';
+
 const CarDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
-  // Dummy dynamic content (replace with real car data based on id later)
-  const car = {
-    name: "BMW M4 Competition",
-    price: "$299",
-    type: "SUV",
-    year: 2022,
-    location: "Los Angeles",
-    seats: "5 Seats",
-    fuel: "Gasoline",
-    transmission: "Automatic",
-    features: ["Leather Seats", "Panoramic Sunroof", "Wireless Charging", "360 Camera"],
-    image: BMWM4,
-    description: "The BMW X5 is a mid-size luxury SUV produced by BMW. The X5 made its debut in 1999 as the first SUV ever produced by BMW.",
-  };
+  // Combine vehicles from both components
+  const allVehicles = [...featuredVehicles, ...carsVehicles];
+
+  // Find the car by id
+  const car = allVehicles.find(v => v.id === parseInt(id));
+
+  if (!car) {
+    return (
+      <div className="bg-light min-vh-100 font-inter text-dark">
+        <main className="container my-4">
+          <div className="text-center">
+            <h2>Car Not Found</h2>
+            <p>The car you're looking for doesn't exist.</p>
+            <Link to="/cars" className="btn" style={{ backgroundColor: '#667eea', color: 'white', border: 'none' }}>Back to Cars</Link>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // Extract details from car data
+  const {
+    name,
+    price,
+    type,
+    img: image,
+    tags
+  } = car;
+
+  // Parse tags for details
+  const seats = tags.find(tag => tag.includes('Seats')) || 'N/A';
+  const fuel = tags.find(tag => tag.includes('Hybrid') || tag.includes('Diesel') || tag.includes('Petrol')) || 'N/A';
+  const transmission = tags.find(tag => tag.includes('Automatic') || tag.includes('Manual') || tag.includes('Semi-Automatic') || tag.includes('CVT')) || 'N/A';
+  const location = tags.find(tag => tag.includes('York') || tag.includes('Angeles') || tag.includes('Francisco') || tag.includes('Chicago') || tag.includes('Miami') || tag.includes('Seattle')) || 'N/A';
+  const year = type.split(' - ')[1] || 'N/A';
+
+  // Dummy features and description (can be expanded later)
+  const features = ["Leather Seats", "Panoramic Sunroof", "Wireless Charging", "360 Camera"];
+  const description = `The ${name} is a premium vehicle in the ${type.split(' - ')[0]} category. Experience luxury and performance with this exceptional car.`;
 
   return (
     <div className="bg-light min-vh-100 font-inter text-dark">
            <main className="container my-4">
         {/* Back to all cars link */}
-        <div className="mb-4">
-          <a href="#" className="text-secondary text-decoration-none d-flex align-items-center">
+
+          <Link to="/cars" className=" btn text-white text-decoration-none" style={{ background: 'linear-gradient(45deg, #77c1fdff, #1100ffff)', padding: '0.5rem 1rem', borderRadius: '0.375rem' }}>
             <svg className="me-1" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
             <span>Back to all cars</span>
-          </a>
-        </div>
+          </Link>
+
 
         <div className="row g-4">
           {/* Left Section - Car Details */}
@@ -41,38 +66,38 @@ const CarDetails = () => {
             <div className="card shadow-sm mb-4 border-0 rounded-3">
               <div className="card-body p-3">
                 <img
-                  src={BMWM4}
-                  alt="BMW M4 Competition"
+                  src={image}
+                  alt={name}
                   className="img-fluid rounded-lg mb-3"
                   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/800x450/e0e0e0/ffffff?text=Image+Error"; }}
                 />
-                <h1 className="h3 fw-bold mb-2">BMW M4 COMPETITION</h1>
-                <p className="text-muted mb-4">2022 &bull; SUV</p>
+                <h1 className="h3 fw-bold mb-2">{name.toUpperCase()}</h1>
+                <p className="text-muted mb-4">{year} &bull; {type.split(' - ')[0]}</p>
 
                 {/* Features Grid */}
                 <div className="row row-cols-2 row-cols-sm-4 g-3 mb-4">
                   <div className="col text-center">
                     <div className="bg-light p-3 rounded-lg shadow-sm">
                       <svg className="mb-2 text-secondary" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h-10a2 2 0 01-2-2V8a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2zM9 11h6M9 15h6M7 7h10"></path></svg>
-                      <small className="fw-medium">5 Seats</small>
+                      <small className="fw-medium">{seats}</small>
                     </div>
                   </div>
                   <div className="col text-center">
                     <div className="bg-light p-3 rounded-lg shadow-sm">
                       <svg className="mb-2 text-secondary" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4m0-10l8-4"></path></svg>
-                      <small className="fw-medium">Gasoline</small>
+                      <small className="fw-medium">{fuel}</small>
                     </div>
                   </div>
                   <div className="col text-center">
                     <div className="bg-light p-3 rounded-lg shadow-sm">
                       <svg className="mb-2 text-secondary" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100 4m0-4a2 2 0 110 4m0 0V4m0 4h6m6 4a2 2 0 100 4m0-4a2 2 0 110 4m0 0V4m0 4h6"></path></svg>
-                      <small className="fw-medium">Automatic</small>
+                      <small className="fw-medium">{transmission}</small>
                     </div>
                   </div>
                   <div className="col text-center">
                     <div className="bg-light p-3 rounded-lg shadow-sm">
                       <svg className="mb-2 text-secondary" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                      <small className="fw-medium">Los Angeles</small>
+                      <small className="fw-medium">{location}</small>
                     </div>
                   </div>
                 </div>
@@ -80,7 +105,7 @@ const CarDetails = () => {
                 {/* Description */}
                 <h2 className="h5 fw-bold mb-3">Description</h2>
                 <p className="text-secondary lh-base mb-4">
-                  The BMW X5 is a mid-size luxury SUV produced by BMW. The X5 made its debut in 1999 as the first SUV ever produced by BMW.
+                  {description}
                 </p>
 
                 {/* Features List */}
@@ -128,7 +153,7 @@ const CarDetails = () => {
             <div className="card shadow-sm rounded-3 border-0">
               <div className="card-body p-4">
                 <div className="d-flex justify-content-between align-items-baseline mb-3">
-                  <span className="h2 fw-bold mb-0">$299</span>
+                  <span className="h2 fw-bold mb-0">{price}</span>
                   <span className="text-muted">per day</span>
                 </div>
 

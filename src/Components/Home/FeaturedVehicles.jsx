@@ -115,4 +115,5 @@ const FeaturedVehicles = () => {
   );
 };
 
+export { vehicles };
 export default FeaturedVehicles;
