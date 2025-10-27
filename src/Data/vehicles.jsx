@@ -1,8 +1,8 @@
 // src/data/vehicles.js
-import carImage1 from "../assets/image/car_image1.png";
-import carImage2 from "../assets/image/car_image2.png";
-import carImage3 from "../assets/image/car_image3.png";
-import carImage4 from "../assets/image/car_image4.png";
+const carImage1 = "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop&crop=center";
+const carImage2 = "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=300&fit=crop&crop=center";
+const carImage3 = "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop&crop=center";
+const carImage4 = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center";
 
 export const vehicles = [
   {
@@ -46,5 +46,47 @@ export const vehicles = [
     transmission: "Automatic",
     features: ["Leather Seats", "Panoramic Sunroof", "Wireless Charging", "360 Camera"],
     description: "The BMW M4 Competition is a high-performance sports car...",
+  },
+  {
+    id: "audi-q7",
+    name: "Audi Q7",
+    type: "SUV - 2021",
+    year: 2021,
+    price: "$350/day",
+    img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=300&fit=crop&crop=center",
+    location: "San Francisco",
+    seats: "7 Seats",
+    fuel: "Diesel",
+    transmission: "Automatic",
+    features: ["Leather Seats", "Panoramic Sunroof", "Wireless Charging", "360 Camera"],
+    description: "The Audi Q7 is a luxury SUV known for its comfort and advanced technology...",
+  },
+  {
+    id: "mercedes-c-class",
+    name: "Mercedes-Benz C-Class",
+    type: "Sedan - 2022",
+    year: 2022,
+    price: "$250/day",
+    img: "https://images.unsplash.com/photo-1494905998402-395d579af36f?w=400&h=300&fit=crop&crop=center",
+    location: "Chicago",
+    seats: "5 Seats",
+    fuel: "Petrol",
+    transmission: "Automatic",
+    features: ["Leather Seats", "Wireless Charging", "360 Camera"],
+    description: "The Mercedes-Benz C-Class is a premium sedan offering luxury and performance...",
+  },
+  {
+    id: "ford-mustang",
+    name: "Ford Mustang",
+    type: "Coupe - 2020",
+    year: 2020,
+    price: "$180/day",
+    img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop&crop=center",
+    location: "Miami",
+    seats: "2 Seats",
+    fuel: "Petrol",
+    transmission: "Manual",
+    features: ["Leather Seats", "Sport Mode"],
+    description: "The Ford Mustang is an iconic American muscle car with powerful performance...",
   },
 ];

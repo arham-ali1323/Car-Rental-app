@@ -17,7 +17,7 @@ import {
   FaList,
   FaSignInAlt,
 } from "react-icons/fa";
-import Logo from "../assets/image/logo.svg";
+import Logo from "../assets/image/logo.png";
 import { vehicles as featuredVehicles } from "../Components/Home/FeaturedVehicles";
 import { vehicles as carsVehicles } from "../Components/Cars/CarsFeatures";
 

@@ -36,10 +36,10 @@ import main_car from "./main_car.png"
 import banner_car_image from "./banner_car_image.png"
 import user_profile from "./user_profile.png"
 import upload_icon from "./upload_icon.svg"
-import car_image1 from "./car_image1.png"
-import car_image2 from "./car_image2.png"
-import car_image3 from "./car_image3.png"
-import car_image4 from "./car_image4.png"
+const car_image1 = "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop&crop=center";
+const car_image2 = "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=300&fit=crop&crop=center";
+const car_image3 = "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop&crop=center";
+const car_image4 = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center";
 
 export const cityList = ['New York', 'Los Angeles', 'Houston', 'Chicago']
 
