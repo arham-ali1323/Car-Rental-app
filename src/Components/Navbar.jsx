@@ -136,8 +136,8 @@ function CarNavbar() {
                         color: "white",
                       }}
                       onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = "#ffd700";
-                        e.target.style.borderColor = "#ffd700";
+                        e.target.style.background = "linear-gradient(135deg, #5a6fd8 0%, #693b94 100%)";
+                        e.target.style.borderColor = "#5a6fd8";
                         e.target.style.color = "#333";
                       }}
                       onMouseLeave={(e) => {
@@ -165,8 +165,8 @@ function CarNavbar() {
                         color: "white",
                       }}
                       onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = "#ffd700";
-                        e.target.style.borderColor = "#ffd700";
+                        e.target.style.background = "linear-gradient(135deg, #5a6fd8 0%, #693b94 100%)";
+                        e.target.style.borderColor = "#5a6fd8";
                         e.target.style.color = "#333";
                       }}
                       onMouseLeave={(e) => {
