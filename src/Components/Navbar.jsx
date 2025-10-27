@@ -35,7 +35,11 @@ function CarNavbar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto align-items-center">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05, color: "#ffd700" }}
+              whileTap={{ scale: 0.95 }}
+              style={{ borderRadius: "8px", padding: "5px 10px" }}
+            >
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -43,13 +47,23 @@ function CarNavbar() {
                   (isActive ? " active fw-bold" : "")
                 }
                 style={{ textDecoration: "none" }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#ffd700";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "white";
+                }}
               >
                 <FaHome className="me-2" />
                 Home
               </NavLink>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05, color: "#ffd700" }}
+              whileTap={{ scale: 0.95 }}
+              style={{ borderRadius: "8px", padding: "5px 10px" }}
+            >
               <NavLink
                 to="/cars"
                 className={({ isActive }) =>
@@ -57,13 +71,23 @@ function CarNavbar() {
                   (isActive ? " active fw-bold" : "")
                 }
                 style={{ textDecoration: "none" }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#ffd700";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "white";
+                }}
               >
                 <FaCar className="me-2" />
                 Cars
               </NavLink>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileHover={{ scale: 1.05, color: "#ffd700" }}
+              whileTap={{ scale: 0.95 }}
+              style={{ borderRadius: "8px", padding: "5px 10px" }}
+            >
               <NavLink
                 to="/my-booking"
                 className={({ isActive }) =>
@@ -71,6 +95,12 @@ function CarNavbar() {
                   (isActive ? " active fw-bold" : "")
                 }
                 style={{ textDecoration: "none" }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "#ffd700";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "white";
+                }}
               >
                 <FaCalendarAlt className="me-2" />
                 My Booking
@@ -93,7 +123,7 @@ function CarNavbar() {
                 </Col>
                 <Col xs="auto">
                   <motion.div
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "#ffd700" }}
                     whileTap={{ scale: 0.95 }}
                     style={{ borderRadius: "50rem" }}
                   >
@@ -103,14 +133,17 @@ function CarNavbar() {
                       style={{
                         transition: "all 0.3s ease",
                         borderColor: "white",
+                        color: "white",
                       }}
                       onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-                        e.target.style.borderColor = "white";
+                        e.target.style.backgroundColor = "#ffd700";
+                        e.target.style.borderColor = "#ffd700";
+                        e.target.style.color = "#333";
                       }}
                       onMouseLeave={(e) => {
                         e.target.style.backgroundColor = "transparent";
                         e.target.style.borderColor = "white";
+                        e.target.style.color = "white";
                       }}
                     >
                       <FaList className="me-2" />
@@ -118,7 +151,7 @@ function CarNavbar() {
                     </Button>
                   </motion.div>
                   <motion.div
-                    whileHover={{ scale: 1.05, backgroundColor: "#5a67d8" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "#ffd700" }}
                     whileTap={{ scale: 0.95 }}
                     style={{ borderRadius: "50rem" }}
                   >
@@ -129,14 +162,17 @@ function CarNavbar() {
                         backgroundColor: "#4c51bf",
                         borderColor: "#4c51bf",
                         transition: "all 0.3s ease",
+                        color: "white",
                       }}
                       onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = "#434190";
-                        e.target.style.borderColor = "#434190";
+                        e.target.style.backgroundColor = "#ffd700";
+                        e.target.style.borderColor = "#ffd700";
+                        e.target.style.color = "#333";
                       }}
                       onMouseLeave={(e) => {
                         e.target.style.backgroundColor = "#4c51bf";
                         e.target.style.borderColor = "#4c51bf";
+                        e.target.style.color = "white";
                       }}
                     >
                       <FaSignInAlt className="me-2" />
