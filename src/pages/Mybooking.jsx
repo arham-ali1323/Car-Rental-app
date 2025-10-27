@@ -55,8 +55,8 @@ const MyBooking = () => {
       <h2 className="mb-4">My Bookings</h2>
       <Row>
         {bookings.map((booking, index) => (
-          <Col md={6} lg={12} key={index}>
-            <BookingCard booking={booking} />
+          <Col lg={12} key={index}>
+            <BookingCard booking={booking} index={index} />
           </Col>
         ))}
       </Row>

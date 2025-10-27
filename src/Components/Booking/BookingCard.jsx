@@ -1,63 +1,133 @@
 import React from "react";
-import { Row, Col, Badge } from "react-bootstrap";
-import { FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import { Row, Col, Badge, Button } from "react-bootstrap";
+import { FaMapMarkerAlt, FaCalendarAlt, FaEdit, FaTrash, FaCheckCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-const BookingCard = ({ booking }) => {
+const BookingCard = ({ booking, index }) => {
   if (!booking) return null;
 
   return (
-    <div className="p-3 mb-4 border rounded shadow-sm bg-white">
-      <Row>
+    <motion.div
+      className="p-4 mb-4 border-0 rounded-3 shadow-lg bg-white position-relative overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
+        border: "1px solid rgba(0,0,0,0.05)",
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{
+        scale: 1.02,
+        boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
+        transition: { duration: 0.3 }
+      }}
+    >
+      {/* Status Indicator */}
+      <div
+        className="position-absolute top-0 start-0 w-100"
+        style={{
+          height: "4px",
+          background: "linear-gradient(90deg, #28a745 0%, #20c997 100%)",
+        }}
+      ></div>
+
+      <Row className="align-items-center">
         {/* Car Image */}
         <Col md={3} className="d-flex align-items-center justify-content-center">
-          <img
+          <motion.img
             src={booking.image}
             alt={booking.title}
-            className="img-fluid rounded"
-            style={{ maxHeight: "120px", objectFit: "cover" }}
+            className="img-fluid rounded-3"
+            style={{
+              maxHeight: "140px",
+              objectFit: "cover",
+              boxShadow: "0 8px 25px rgba(0,0,0,0.15)"
+            }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
           />
         </Col>
 
         {/* Car Info & Details */}
         <Col md={6}>
-          <div className="d-flex align-items-center mb-2">
-            <Badge bg="light" text="dark" className="me-2 border">
-              Booking #1
+          <div className="d-flex align-items-center mb-3">
+            <Badge
+              bg="light"
+              text="dark"
+              className="me-2 border fw-semibold px-3 py-2"
+              style={{ fontSize: "0.75rem" }}
+            >
+              Booking #{index + 1}
             </Badge>
-            <Badge bg="success" className="text-capitalize">
-              confirmed
+            <Badge
+              bg="success"
+              className="text-capitalize d-flex align-items-center px-3 py-2"
+              style={{ fontSize: "0.75rem" }}
+            >
+              <FaCheckCircle className="me-1" />
+              Confirmed
             </Badge>
           </div>
 
-          <div className="text-secondary small mb-2">
-            <FaCalendarAlt className="me-2 text-primary" />
-            <strong>Rental Period</strong>: {booking.dateRange}
-          </div>
-          <div className="text-secondary small mb-2">
-            <FaMapMarkerAlt className="me-2 text-primary" />
-            <strong>Pick-up Location</strong>: {booking.pickupLocation}
-          </div>
-          <div className="text-secondary small">
-            <FaMapMarkerAlt className="me-2 text-primary" />
-            <strong>Return Location</strong>: {booking.returnLocation}
+          <div className="mb-2">
+            <div className="d-flex align-items-center text-dark mb-2">
+              <FaCalendarAlt className="me-2 text-primary" style={{ fontSize: "1rem" }} />
+              <span className="fw-semibold">Rental Period:</span>
+              <span className="ms-2">{booking.dateRange}</span>
+            </div>
+            <div className="d-flex align-items-center text-dark mb-2">
+              <FaMapMarkerAlt className="me-2 text-success" style={{ fontSize: "1rem" }} />
+              <span className="fw-semibold">Pick-up:</span>
+              <span className="ms-2">{booking.pickupLocation}</span>
+            </div>
+            <div className="d-flex align-items-center text-dark">
+              <FaMapMarkerAlt className="me-2 text-warning" style={{ fontSize: "1rem" }} />
+              <span className="fw-semibold">Return:</span>
+              <span className="ms-2">{booking.returnLocation}</span>
+            </div>
           </div>
 
-          <h6 className="mt-3 mb-0 fw-bold">{booking.title}</h6>
-          <small className="text-muted">
+          <h5 className="mt-3 mb-1 fw-bold text-dark">{booking.title}</h5>
+          <p className="text-muted mb-0 small">
             {booking.year} • {booking.type || "SUV"} • {booking.location}
-          </small>
+          </p>
         </Col>
 
-        {/* Pricing */}
-        <Col md={3} className="text-end d-flex flex-column justify-content-between">
-          <div>
-            <p className="text-secondary small mb-0">Total Price</p>
-            <h5 className="text-primary fw-bold">{booking.price}</h5>
-            <p className="text-muted small">Booked on 4/1/2025</p>
+        {/* Pricing & Actions */}
+        <Col md={3} className="text-end d-flex flex-column justify-content-between h-100">
+          <div className="mb-3">
+            <p className="text-secondary small mb-1 fw-semibold">Total Price</p>
+            <h4 className="text-primary fw-bold mb-1">{booking.price}</h4>
+            <p className="text-muted small mb-0">Booked on 4/1/2025</p>
+          </div>
+
+          <div className="d-flex gap-2 justify-content-end">
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Button
+                variant="outline-primary"
+                size="sm"
+                className="rounded-pill px-3"
+                style={{ fontSize: "0.8rem" }}
+              >
+                <FaEdit className="me-1" />
+                Edit
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Button
+                variant="outline-danger"
+                size="sm"
+                className="rounded-pill px-3"
+                style={{ fontSize: "0.8rem" }}
+              >
+                <FaTrash className="me-1" />
+                Cancel
+              </Button>
+            </motion.div>
           </div>
         </Col>
       </Row>
-    </div>
+    </motion.div>
   );
 };
 
