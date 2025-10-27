@@ -1,26 +1,26 @@
 import React from "react";
 import { Container, Row, Col, InputGroup, Form } from "react-bootstrap";
+import "./Cars.css";
 
 const CarsHero = () => {
   return (
-    <section className="hero-section">
-      <Container className="text-center">
-        <h1 className="hero-heading">Luxury cars on Rent</h1>
-        <p className="text-secondary fw-bold">Browse our selection of premium vehicles available for your next adventure</p>
-        <Row className="my-5">
+    <section className="cars-hero-section">
+      <Container className="cars-hero-container text-center">
+        <h1 className="cars-hero-heading">Luxury cars on Rent</h1>
+        <p className="cars-hero-subtitle">Browse our selection of premium vehicles available for your next adventure</p>
+        <Row className="cars-hero-search">
           <Col>
-            <InputGroup className="mb-3">
-              <InputGroup.Text>
-                <i className="bi bi-search text-dark"></i>
+            <InputGroup className="cars-hero-input-group mb-3">
+              <InputGroup.Text className="cars-hero-input-group-text">
+                <i className="bi bi-search"></i>
               </InputGroup.Text>
               <Form.Control
                 placeholder="Search By Make, Model and Features"
-                aria-label="Recipient's username"
-                aria-describedby="basic-addon2"
-                className="text-opacity-50 text-secondary fw-bold"
+                aria-label="Search cars"
+                className="cars-hero-form-control"
               />
-              <InputGroup.Text>
-                <i className="bi bi-funnel text-dark"></i>
+              <InputGroup.Text className="cars-hero-input-group-text">
+                <i className="bi bi-funnel"></i>
               </InputGroup.Text>
             </InputGroup>
           </Col>

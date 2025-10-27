@@ -1,0 +1,116 @@
+
+/* Cars Hero Section Styles */
+.cars-hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cars-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.cars-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.cars-hero-heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.cars-hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.cars-hero-search {
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.cars-hero-input-group {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.cars-hero-input-group:focus-within {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.cars-hero-input-group-text {
+  background: transparent;
+  border: none;
+  color: #667eea;
+  font-size: 1.2rem;
+  padding: 0.75rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.cars-hero-input-group-text:hover {
+  color: #5a67d8;
+}
+
+.cars-hero-form-control {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  padding: 0.75rem 1rem;
+}
+
+.cars-hero-form-control::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.cars-hero-form-control:focus {
+  box-shadow: none;
+  background: transparent;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .cars-hero-heading {
+    font-size: 2.5rem;
+  }
+  .cars-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .cars-hero-search {
+    padding: 0 1rem;
