@@ -121,11 +121,11 @@ function CarNavbar() {
                     style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}
                   />
                 </Col>
-                <Col xs="auto">
+                <Col xs="auto" className="d-flex align-items-center">
                   <motion.div
                     whileHover={{ scale: 1.05, backgroundColor: "#ffd700" }}
                     whileTap={{ scale: 0.95 }}
-                    style={{ borderRadius: "50rem" }}
+                    style={{ borderRadius: "50rem", padding: "5px 10px" }}
                   >
                     <Button
                       variant="outline-light"
@@ -153,7 +153,7 @@ function CarNavbar() {
                   <motion.div
                     whileHover={{ scale: 1.05, backgroundColor: "#ffd700" }}
                     whileTap={{ scale: 0.95 }}
-                    style={{ borderRadius: "50rem" }}
+                    style={{ borderRadius: "50rem", padding: "5px 10px" }}
                   >
                     <Button
                       variant="primary"
