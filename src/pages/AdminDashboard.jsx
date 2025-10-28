@@ -53,7 +53,7 @@ function AdminDashboard() {
                     <div className="d-flex justify-content-between align-items-start">
                       <div>
                         <div className="text-muted small mb-1">Total Cars</div>
-                        <h3 className="mb-0">{stats.totalCars}</h3>
+                        <h3 className="mb-0">8</h3>
                       </div>
                       <div className="bg-primary bg-opacity-10 p-2 rounded">
                         <span style={{ fontSize: '24px' }}>🚗</span>
@@ -68,7 +68,7 @@ function AdminDashboard() {
                     <div className="d-flex justify-content-between align-items-start">
                       <div>
                         <div className="text-muted small mb-1">Total Bookings</div>
-                        <h3 className="mb-0">{stats.totalBookings || 8}</h3>
+                        <h3 className="mb-0">8</h3>
                       </div>
                       <div className="bg-info bg-opacity-10 p-2 rounded">
                         <span style={{ fontSize: '24px' }}>📅</span>
@@ -83,7 +83,7 @@ function AdminDashboard() {
                     <div className="d-flex justify-content-between align-items-start">
                       <div>
                         <div className="text-muted small mb-1">Pending Bookings</div>
-                        <h3 className="mb-0">{stats.pendingBookings || 8}</h3>
+                        <h3 className="mb-0">8</h3>
                       </div>
                       <div className="bg-warning bg-opacity-10 p-2 rounded">
                         <span style={{ fontSize: '24px' }}>⚠️</span>
@@ -98,7 +98,7 @@ function AdminDashboard() {
                     <div className="d-flex justify-content-between align-items-start">
                       <div>
                         <div className="text-muted small mb-1">Completed Bookings</div>
-                        <h3 className="mb-0">{stats.completedBookings || 8}</h3>
+                        <h3 className="mb-0">8</h3>
                       </div>
                       <div className="bg-success bg-opacity-10 p-2 rounded">
                         <span style={{ fontSize: '24px' }}>✅</span>
@@ -157,7 +157,7 @@ function AdminDashboard() {
                     <p className="text-muted small mb-4">Revenue for current month</p>
 
                     <div className="text-center">
-                      <h1 className="text-primary mb-4" style={{ fontSize: '3rem' }}>${monthlyRevenue || 1060}</h1>
+                      <h1 className="text-primary mb-4" style={{ fontSize: '3rem' }}>$1060</h1>
                       <div className="progress" style={{ height: '8px' }}>
                         <div
                           className="progress-bar bg-primary"
