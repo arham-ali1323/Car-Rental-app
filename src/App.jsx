@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Cars from "./pages/Cars";
 import MyBooking from "./pages/Mybooking";
 import CarDetails from "./pages/CarDetails";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
     <Route path="/cars" element={<Cars />} />
     <Route path="/cars/:id" element={<CarDetails />} />
     <Route path="/my-booking" element={<MyBooking />} />
+    <Route path="/admin" element={<AdminDashboard />} />
 
           {/*     <Route path="/contact" element={<Contact />} /> */}
         </Routes>
