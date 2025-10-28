@@ -9,15 +9,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
 import { motion } from "framer-motion";
-import {
-  FaHome,
-  FaCar,
-  FaCalendarAlt,
-  FaSearch,
-  FaList,
-  FaSignInAlt,
-} from "react-icons/fa";
-import Logo from "../assets/image/logo.png";
+import { FaSearch } from "react-icons/fa";
+
+import Logo from "../assets/image/logo.svg";
 import { vehicles as featuredVehicles } from "../Components/Home/FeaturedVehicles";
 import { vehicles as carsVehicles } from "../Components/Cars/CarsFeatures";
 
@@ -97,7 +91,6 @@ function CarNavbar() {
                   (isActive ? " active fw-bold" : "")
                 }
               >
-                <FaHome className="me-2" />
                 Home
               </NavLink>
             </motion.div>
@@ -114,7 +107,6 @@ function CarNavbar() {
                   (isActive ? " active fw-bold" : "")
                 }
               >
-                <FaCar className="me-2" />
                 Cars
               </NavLink>
             </motion.div>
@@ -131,8 +123,23 @@ function CarNavbar() {
                   (isActive ? " active fw-bold" : "")
                 }
               >
-                <FaCalendarAlt className="me-2" />
                 My Booking
+              </NavLink>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05, color: "#ffd700" }}
+              whileTap={{ scale: 0.95 }}
+              style={{ borderRadius: "8px", padding: "5px 10px" }}
+            >
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  "nav-link text-white d-flex align-items-center nav-link-custom" +
+                  (isActive ? " active fw-bold" : "")
+                }
+              >
+                Admin Dashboard
               </NavLink>
             </motion.div>
 
@@ -195,18 +202,7 @@ function CarNavbar() {
                   )}
                 </Col>
                 <Col xs="auto" className="d-flex align-items-center">
-                  <motion.div
-                    whileTap={{ scale: 0.95 }}
-                    style={{ borderRadius: "50rem", padding: "5px 10px" }}
-                  >
-                    <Button
-                      variant="outline-light"
-                      className="rounded-pill me-2 d-flex align-items-center border-2 btn-outline-light-custom"
-                    >
-                      <FaList className="me-2" />
-                      List Cars
-                    </Button>
-                  </motion.div>
+                 
                   <motion.div
                     whileTap={{ scale: 0.95 }}
                     style={{ borderRadius: "50rem", padding: "5px 10px" }}
@@ -215,7 +211,6 @@ function CarNavbar() {
                       variant="primary"
                       className="rounded-pill d-flex align-items-center btn-primary-custom"
                     >
-                      <FaSignInAlt className="me-2" />
                       Login
                     </Button>
                   </motion.div>
