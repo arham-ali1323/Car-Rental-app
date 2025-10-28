@@ -99,7 +99,7 @@ const CarsFeatures = () => {
   return (
     <section className="cars-features-section">
       <Container className="cars-features-container">
-        <h2 className="cars-features-heading">Featured Vehicles</h2>
+        <h2 className="cars-features-heading">Available  Cars</h2>
         <p className="cars-features-subtitle">
           Explore our selection of premium vehicles available for your next adventure.
         </p>
