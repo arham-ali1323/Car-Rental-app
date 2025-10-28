@@ -210,6 +210,7 @@ function CarNavbar() {
                     <Button
                       variant="primary"
                       className="rounded-pill d-flex align-items-center btn-primary-custom"
+                      onClick={() => navigate('/login')}
                     >
                       Login
                     </Button>
